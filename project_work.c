@@ -25,9 +25,9 @@ int main(void)
     // user data
 
             welcome();
-            printf("where you would like to go:");
+            printf("\t\twhere you would like to go:");
             scanf("%c",&input);
-            printf("%c",input);
+            //printf("%c",input);
 
 
             switch(input)
@@ -66,23 +66,23 @@ int login(int *status)
     char password[12];
 
    // login process
-    printf(" >Enter your username:\n");
+    printf("\t\tEnter your username:");
     scanf("%s",&username);
 
-    printf("Enter your password:\n");
+    printf("\n\t\tEnter your password:");
     scanf("%s",&password);
     // login condition
     if(strcmp(username,"admin")==0){
         if(strcmp(password,"1234")==0){
 
-        printf("\nWelcome.Login Success!");
+        printf("\n\t\tWelcome.Login Success!");
         delivery();
         exit_status=0;
 
 
         }else{
 
-     printf("\nwrong password \n ");
+     printf("\n\t\twrong password \n ");
      printf("\n\t\t________________________________________");
      printf("\n\t\t [1] Try again");
      printf("\n\t\t [0] press 0 to quit             ");
@@ -92,12 +92,12 @@ int login(int *status)
 }
     }else{
 
-    printf("\nUser doesn't exist");
-    printf("\nwrong password \n ");
+    printf("\n\t\tUser doesn't exist");
+    printf("\n\t\twrong password ");
     printf("\n\t\t________________________________________");
     printf("\n\t\t [1] Try again");
     printf("\n\t\t [0] press 0 to quit             ");
-    printf("\n\t\t________________________________________\n\n");
+    printf("\n\t\t________________________________________\n\t\t");
     scanf("%d",&exit_status);
 }
     }
@@ -126,11 +126,20 @@ int delivery(void)
     int productCashCollection;
     // user input
     int user_input;
+// area
+    char dhaka[50]="Dhaka";
+    char sylhet[50]="Sylhet";
+    char barishal[50]="Barishal";
+    char rajshahi[50]="Rajshahi";
+    char rangpur[50]="Rangpur";
+    char khulna[50]="Khulna";
+    char chittagong[50]="Chittagong";
+    char mymensingh[50]="Mymensingh";
 
   printf("\n\t\t________________________________________");
      printf("\n\t\t [1] Create Order");
      printf("\n\t\t [0] press 0 to quit             ");
-     printf("\n\t\t________________________________________\n\n");
+     printf("\n\t\t________________________________________\n\t\t");
 
     scanf("%d",&user_input);
 
@@ -142,76 +151,75 @@ int delivery(void)
     recieverInfo( &reciever_name,&reciever_address,&reciever_m_number );
 
     //For perchel pickup location
-    printf("Pickup loction : \n");
+    printf("\n\n\t\tPickup loction > \n");
     int pickupLocation=get_division(pickupLocation);
 
     //For perchel deliver location
-    printf("Delivery loction : \n");
+    printf("\n\n\t\tDelivery loction > \n");
     int deliveryLocation=get_division(deliveryLocation);
 
-printf("%d",deliveryLocation);
+    ("%d",deliveryLocation);
     //deciede pickup location
-    switch(pickupLocation)
+    switch( pickupLocation)
     {
     case 1:
-         pickup_location[100]="Dhaka";
+       strcpy(pickup_location,dhaka);
         break;
     case 2:
-        pickup_location[100]="Barishal";
+        strcpy(pickup_location,barishal);
         break;
     case 3:
-         pickup_location[100]="Chitagong";
+         strcpy(pickup_location,chittagong);
         break;
      case 4:
-         pickup_location[100]="Rajsahi";
+         strcpy(pickup_location,rajshahi);
         break;
      case 5:
-         pickup_location[100]="Khulna";
+         strcpy(pickup_location,khulna);
         break;
      case 6:
-       pickup_location[100]="Rangpur";
+       strcpy(pickup_location,rangpur);
         break;
      case 7:
-        pickup_location[100]="Sylhet";
+        strcpy(pickup_location,sylhet);
         break;
     case 8:
-        pickup_location[100]="Mymenshing";
+        strcpy(pickup_location,mymensingh);
         break;
     default:
-         pickup_location[100]="Dhaka";
+        strcpy(pickup_location,dhaka);
 
     }
 
-
       //deciede Delivery location
-    switch(deliveryLocation)
+     switch( deliveryLocation)
     {
     case 1:
-         delivery_location[100]="Dhaka";
+       strcpy(delivery_location,dhaka);
         break;
     case 2:
-        delivery_location[100]="Barishal";
+        strcpy(delivery_location,barishal);
         break;
     case 3:
-         delivery_location[100]="Chitagong";
+         strcpy(delivery_location,chittagong);
         break;
      case 4:
-         delivery_location[100]="Rajsahi";
+         strcpy(delivery_location,rajshahi);
         break;
      case 5:
-         delivery_location[100]="Khulna";
+         strcpy(delivery_location,khulna);
         break;
      case 6:
-       delivery_location[100]="Rangpur";
+       strcpy(delivery_location,rangpur);
         break;
      case 7:
-        delivery_location[100]="Sylhet";
+        strcpy(delivery_location,sylhet);
         break;
     case 8:
-        delivery_location[100]="Mymenshing";
+        strcpy(pickup_location,mymensingh);
         break;
     default:
-         delivery_location[100]="Dhaka";
+        strcpy(pickup_location,dhaka);
 
     }
 
@@ -236,20 +244,20 @@ printf("%d",deliveryLocation);
 
 
 // collect delivery area
-int get_division(int div_option)
+int get_division(int div_option)  // Prottoy's Segment
 {
 
-    printf("Select location :\n\n");
-    printf("1> Dhaka \n");
-    printf("2> Barishal \n");
-    printf("3> Chittagong \n");
-    printf("4> Rajshahi \n");
-    printf("5> Khulna \n");
-    printf("6> Rangpur \n");
-    printf("7> Sylhet \n");
-    printf("8> Mymensingh \n\n");
+    printf("\t\tSelect location :\n\n");
+    printf("\t\t  1> Dhaka \n");
+    printf("\t\t  2> Barishal \n");
+    printf("\t\t  3> Chittagong \n");
+    printf("\t\t  4> Rajshahi \n");
+    printf("\t\t  5> Khulna \n");
+    printf("\t\t  6> Rangpur \n");
+    printf("\t\t  7> Sylhet \n");
+    printf("\t\t  8> Mymensingh \n\n");
 
-    printf("Choose the option from above : ");
+    printf("\t\t*Choose the option from above : ");
     scanf("%d",&div_option);
 
     switch(div_option)
@@ -278,7 +286,7 @@ int get_division(int div_option)
 }
 
 // collect product weight
-int get_weight(int weight_option)
+int get_weight(int weight_option)  // Prottoy's segment
 {
 
     printf("\n\nWeight of the parcel : \n\n");
@@ -308,21 +316,21 @@ int get_weight(int weight_option)
 }
 
 // collect sender information information
-void senderInfo( char *name,char *address,char *m_number )
+void senderInfo( char *name,char *address,char *m_number ) // Prottoy' Segment
 {
 
     // Taking User informations
 
-    printf("\n\n*Sender Information : \n\n");
-    printf("Sender name : ");
+    printf("\n\n\t\t*Sender Information > \n\n");
+    printf("\t\t Sender name : ");
     fflush(stdin);
     gets(name);
 
-    printf("\n Sender address : ");
+    printf("\n\t\t Sender address : ");
     fflush(stdin);
     gets(address);
 
-    printf("\n Sender Mobile number(+88) : ");
+    printf("\n\t\t Sender Mobile number(+88) : ");
     fflush(stdin);
     gets(m_number);
 
@@ -335,16 +343,17 @@ void recieverInfo( char *name,char *address,char *m_number )
 
     // Taking User informations
 
-    printf("\n\n*Reciever Information : \n\n");
-    printf("Reciever name : ");
+
+    printf("\n\n\n\t\t*Reciever Information > \n");
+    printf("\n\t\t Reciever name : ");
     fflush(stdin);
     gets(name);
 
-    printf("\n Reciever address : ");
+    printf("\n\t\t Reciever address : ");
     fflush(stdin);
     gets(address);
 
-    printf("\n Reciever Mobile number(+88) : ");
+    printf("\n\t\t Reciever Mobile number(+88) : ");
     fflush(stdin);
     gets(m_number);
 
@@ -354,10 +363,10 @@ void recieverInfo( char *name,char *address,char *m_number )
 // product information
 void productInfo(int *price, int *collectCash)
 {
-    printf("Procuct price : ");
+    printf("\t\tProcuct price : ");
     scanf("%d",price);
 
-    printf("Cash Collection : ");
+    printf("\n\t\tCash Collection : ");
     scanf("%d",collectCash);
 }
 
@@ -379,7 +388,7 @@ void invoice(char senderName[],char senderAddress[],char senderNumber[],char rec
      printf("\n\t\t________________________________________");
      printf("\n\t\t Reciever Number:      %s",recieverNumber);
      printf("\n\t\t________________________________________");
-     printf("\n\t\t pickup Location:      %s",pickup_location);
+     printf("\n\t\t pickup Location:      %s", pickup_location);
      printf("\n\t\t________________________________________");
      printf("\n\t\t Delivery Location:    %s",delivery_location);
      printf("\n\t\t________________________________________");
